@@ -1,16 +1,17 @@
-package Com.Output_data;
+package com.output;
 
-import Com.InputData.CreateStorages;
+import com.input.CreateVaults;
 
 public class OutputData {
-    private CreateStorages storages = new CreateStorages();
-    private int[] order,
-            storageBalances;
+    private CreateVaults storages = new CreateVaults();
+
+    private Integer[] order,
+            storageBalances; 
 
     private String[] supermarket,
             storage;
 
-    public void matrixOutput(int[][] matrix, String kindOfMatrix) {
+    public void matrixOutput(Integer[][] matrix, String kindOfMatrix) {
         order = storages.getOrder();
         storageBalances = storages.getStorageBalance();
         supermarket = storages.getSupermarket();
@@ -34,4 +35,5 @@ public class OutputData {
             System.out.println();
         }
     }
+
 }

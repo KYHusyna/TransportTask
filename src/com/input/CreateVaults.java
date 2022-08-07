@@ -1,99 +1,94 @@
-package Com.InputData;
+package com.input;
 
 import java.util.Scanner;
 
-public class CreateStorages {
+public class CreateVaults {
     private static String[] supermarket,
             storage;
-    private static int[] order,
+    private static Integer[] order,
             storageBalances;
 
     Scanner scanner = new Scanner(System.in);
 
     private void createSupermarkets() {
         System.out.println("Enter supermarkets count");
-       int countSupermarkets = scanner.nextInt();
+        Integer countSupermarkets = scanner.nextInt();
 
-        int value;
         supermarket = new String[countSupermarkets];
-        order = new int[countSupermarkets];
+        order = new Integer[countSupermarkets];
 
         for (int i = 0; i < countSupermarkets; i++) {
             System.out.println("\nEnter name supermarket");
             supermarket[i] = scanner.next();
 
             System.out.println("Enter order count");
-            value = scanner.nextInt();
-            order[i] = value;
+            order[i] = scanner.nextInt();
         }
     }
 
     private void createStorage() {
         System.out.println("\nEnter storage count");
-        int countStorage = scanner.nextInt();
+        Integer countStorage = scanner.nextInt();
 
-        int value;
         storage = new String[countStorage];
-        storageBalances = new int[countStorage];
+        storageBalances = new Integer[countStorage];
 
         for (int i = 0; i < countStorage; i++) {
             System.out.println("\nEnter name storage");
             storage[i] = scanner.next();
 
             System.out.println("Enter count things at storage");
-            value = scanner.nextInt();
-            storageBalances[i] = value;
+            storageBalances[i] = scanner.nextInt();
         }
     }
 
     //get
-    private int[] getTempArray(int[] array) {
-        int[] tempArray = new int[array.length];
+    private Integer[] arrayCopy(Integer[] array) {
+        Integer[] arrayCopy = new Integer[array.length];
         for (int i = 0; i < array.length; i++) {
-            tempArray[i] = array[i];
+            arrayCopy[i] = array[i];
         }
-
-        return tempArray;
+        return arrayCopy;
     }
 
-    private String[] getTempArray(String[] array) {
-        String[] tempArray = new String[array.length];
+    private String[] arrayCopy(String[] array) {
+        String[] arrayCopy = new String[array.length];
         for (int i = 0; i < array.length; i++) {
-            tempArray[i] = array[i];
+            arrayCopy[i] = array[i];
         }
-        return tempArray;
+        return arrayCopy;
     }
 
-    public int[] getOrder() {
+    public Integer[] getOrder() {
         if (order == null) {
             createSupermarkets();
         }
-        return getTempArray(order);
+        return arrayCopy(order);
     }
 
     public String[] getSupermarket() {
         if (supermarket == null) {
             createSupermarkets();
         }
-        return getTempArray(supermarket);
+        return arrayCopy(supermarket);
     }
 
-    public int[] getStorageBalance() {
+    public Integer[] getStorageBalance() {
         if (storageBalances == null) {
             createStorage();
         }
-        return getTempArray(storageBalances);
+        return arrayCopy(storageBalances);
     }
 
     public String[] getStorage() {
         if (storage == null) {
             createStorage();
         }
-        return getTempArray(storage);
+        return arrayCopy(storage);
     }
 
     //set
-    protected void setOrder(int[] newOrder) {
+    protected void setOrder(Integer[] newOrder) {
         order = newOrder;
     }
 
@@ -101,7 +96,7 @@ public class CreateStorages {
         supermarket = newSupermarket;
     }
 
-    protected void setStorageBalance(int[] newStorageBalance) {
+    protected void setStorageBalance(Integer[] newStorageBalance) {
         storageBalances = newStorageBalance;
     }
 

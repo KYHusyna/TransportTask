@@ -1,25 +1,25 @@
-package Com.InputData;
+package com.input;
 
-public class ChangeMatrix {
+public class AddFictiveField {
 
     private MatrixCost matrixCost = new MatrixCost();
-    private CreateStorages storages = new CreateStorages();
+    private CreateVaults storages = new CreateVaults();
 
-    public void change_matrix(int difference, int kind, int[] values, String[] names) {
-        int[][] newDeliveryMatrix,
+    public void addFictiveField(Integer difference, Integer kind, Integer[] values, String[] names) {
+        Integer[][] newDeliveryMatrix,
                 oldMatrixCost = matrixCost.getMatrixCost();
 
         String fictive;
 
         if (kind == 0) {
-            newDeliveryMatrix = new int[oldMatrixCost.length][oldMatrixCost[0].length + 1];
+            newDeliveryMatrix = new Integer[oldMatrixCost.length][oldMatrixCost[0].length + 1];
             fictive = "supermarket";
         } else {
-            newDeliveryMatrix = new int[oldMatrixCost.length + 1][oldMatrixCost[0].length];
+            newDeliveryMatrix = new Integer[oldMatrixCost.length + 1][oldMatrixCost[0].length];
             fictive = "storage";
         }
 
-        int[] temp_storage = new int[values.length + 1];
+        Integer[] temp_storage = new Integer[values.length + 1];
         String[] temp_name = new String[names.length + 1];
 
         for (int i = 0; i < temp_storage.length; i++) {

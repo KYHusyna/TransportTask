@@ -1,9 +1,11 @@
-package Com.Output_data;
+package com.output;
+
 
 public class TransportationAmount {
+    Integer transportationAmount;
 
-    public int getTransportationAmount(int[][] matrixDelivery, int[][] matrixCost) {
-        int transportationAmount = 0;
+    public Integer getTransportationAmount(Integer[][] matrixDelivery, Integer[][] matrixCost) {
+        transportationAmount = 0;
 
         for (int i = 0; i < matrixDelivery.length; i++) {
             for (int j = 0; j < matrixDelivery[0].length; j++) {

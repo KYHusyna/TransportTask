@@ -1,17 +1,17 @@
-package Com.CalculatingData;
+package com.calculating.algorithms;
 
-import Com.Interfaces.Calculate;
+import com.Controller.Calculate;
 
-public class MinimumElement implements Calculate {
+public class MinimumElementAlgorithm implements Calculate {
 
-    MethodsHelper methodsHelper;
-    int[][] deliveryMatrix;
-    int min;
+    private MethodsHelper methodsHelper;
+    private Integer[][] deliveryMatrix;
+    private Integer min;
 
-    public int[][] findDeliveryPath() {
+    public Integer[][] calculateDeliveryPath() {
         System.out.println("----MinimumElement----");
         methodsHelper = new MethodsHelper();
-        deliveryMatrix = new int[methodsHelper.matrixCost.length][methodsHelper.matrixCost[0].length];
+        deliveryMatrix = new Integer[methodsHelper.matrixCost.length][methodsHelper.matrixCost[0].length];
 
         while (!methodsHelper.storageOrOrderEmpty()) {
             min = methodsHelper.findValidCells();
@@ -24,12 +24,12 @@ public class MinimumElement implements Calculate {
                 }
             }
         }
-        return deliveryMatrix;
+        return  methodsHelper.setZeroInNullCells(deliveryMatrix);
     }
 
-    public int[][] getDeliveryMatrix() {
+    public Integer[][] getDeliveryPath() {
         if (deliveryMatrix == null) {
-            findDeliveryPath();
+            calculateDeliveryPath();
         }
         return deliveryMatrix;
     }
